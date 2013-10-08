@@ -1,0 +1,91 @@
+\documentclass[letter,12pt,dissertation]{OUdissertation}
+\usepackage[small]{caption}
+\usepackage{graphicx, subfig} %allows .eps and .epsi graphics to be inserted
+%\usepackage{epic} %allows use of latex graphics
+%\usepackage{eepic} %allows use of latex graphics
+\usepackage{amssymb,amsmath}
+\usepackage{amsfonts}
+\usepackage{multirow}
+\usepackage{psfrag}
+\usepackage{float}
+\usepackage{bar}
+\usepackage[centerfoot]{pageno}
+\usepackage{rotating}
+\usepackage{tabularx, array}
+%\usepackage[amssymb]{siunitx}
+%\usepackage{hyperref}
+\let\autoref\ref
+
+\usepackage{natbib} %with amermeteorsoc.bst
+\bibpunct{(}{)}{;}{a}{}{,}
+
+\newcommand{\be}{\begin{equation}} %these definitions save typing
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\pd}[2]{\frac{\partial#1}{\partial#2}}
+\newcommand{\pdd}[3]{\frac{\partial^{2}#1}{\partial#2 \partial#3}}
+\newcommand{\bse}{\begin{subequations}}
+\newcommand{\ese}{\end{subequations}}
+\def\bal#1\eal{\begin{align}#1\end{align}}%allows for shortcut to align
+
+\begin{document}
+\title{ASSIMILATION OF RADAR AND SURFACE OBSERVATIONS OF A DEVELOPING CONVECTIVE SYSTEM: OBSERVING SYSTEM SIMULATION AND REAL-DATA EXPERIMENTS}
+\author{RYAN ALAN SOBASH}
+\depositdate{2013}
+\majorfield{SCHOOL OF METEOROLOGY}
+\memberone{Dr. David Stensrud}
+\membertwo{Prof. Ming Xue}
+\memberthree{Prof. Frederick Carr}
+\memberfour{Prof. Xuguang Wang}
+\memberfive{Dr. Louis Wicker}
+\membersix{Prof. S. Lackshmivarahan}
+%%%%
+
+\setlength{\parindent}{0.5in}
+\graphicspath{{/Users/rsobash/Desktop/disserfigs/}}
+%redefine caption command to be single spaced (use caption package above to have smaller font)
+\let\savedCaption=\caption
+\renewcommand{\caption}[1]{\normalsize\OUsinglespace\savedCaption{#1}}
+
+\begin{preface}
+\prefacesectionX{Dedication}
+Dedication here
+
+\prefacesection{Acknowledgements}
+Acknowledgements here
+%must leave a blank line next to avoid bug:
+
+\tableofcontents
+\listoftables
+\listoffigures
+\prefacesection{Abstract}
+Abstract here
+\end{preface}
+
+\include{motivation}
+
+\include{background}
+
+\include{osse}
+
+\include{realdata1}
+
+\include{realdata2}
+
+\include{realdata3}
+
+\include{conclusions}
+
+%\bibliographystyle{amermeteorsoc}
+%\bibliography{ref_shorttitles,references}
+
+%\references{agsm}{references}
+\references{amermeteorsoc}{ref_shorttitles,references}
+%comment out the next four lines if you don't have an appendix
+
+\appendix
+\include{appendixA}
+\include{appendixB}
+
+\end{document}

@@ -1,0 +1,69 @@
+\chapter{Forward operators for Vr, Z and Vt}
+Reflectivity is computed within the Morrison microphysics scheme and interpolated directly to produce the predicted observation values, \(H(x^f)\), from the prior state. Reflectivity-weighted terminal velocity (\(V^Z_{T_x}\)) is also computed within the scheme and used by the forward operator for radial velocity. The computation for \(V^Z_{T_x}\) was added to the Morrison scheme. Since a double-moment microphysics scheme is used, the form of the reflectivity forward operator is different than that of single-moment schemes (since number concentration is now predicted and not diagnosed). These formulations are summarized below.
+
+\paragraph{Reflectivity for rain, snow, and graupel}
+
+The rain, snow, and graupel particle size distributions (PSDs) are modelled as inverse exponential functions of the form:
+\begin{equation}
+\label{psd}
+\centering
+N_x(D) = N_{0x}e^{-\lambda_xD}
+\end{equation}
+Where \(x\) is a given hydrometeor species (rain, snow, or graupel), \(D\) is the hydrometeor diameter, \(N_x(D)\) is the number concentration at a given particle diameter, \(N_{0x}\) is the number concentration intercept parameter, and \(\lambda_x\) is the slope parameter. Under the assumption of Rayleigh scattering, and that mass and diameter can be related in a power-law relationship of the form \(m_x(D_x) = c_xD_x^{d_x}\), where \(c_x\) and \(d_x\) are constants, the radar reflectivity factor can be computed by integrating across the PSD for each species\footnote{An approachable derivation of this equation can be found in \citet{milbrandtyau05}}:
+\begin{equation}
+\centering
+\label{Z}
+Z_x = 720N_{Tx}D_{nx}^6
+\end{equation}
+where \(N_{T_x}\) is the total number concentration and \(D_{nx}\) is the characteristic diameter, or \(\lambda^{-1}_x\), and is computed as:
+\begin{equation}
+\centering
+D_{nx} = (\frac{\rho q_x}{c_xN_{T_x}\Gamma(1+d_x)})^{(\frac{1}{d_x})}
+\end{equation}
+where \(q_x\) is the mixing ratio, \(\rho\) is the air density, and \(\Gamma\) is the gamma function. \(N_{T_x}\) and \(q_x\) are both predicted by the microphysics scheme. For spherical particles, \(c_x = \frac{\pi}{6}\rho_x\) and \(d_x = 3\), where \(\rho_x\) is the particle density. \ref{Z} is used for rain, but is modified for graupel and snow to include the effects of ice on the backscattering cross-section through the following adjustment, assuming spherical particles,
+\begin{equation}
+\centering
+Z_{eq} = \frac{|K|_i^2}{|K|_w^2}(\frac{\rho_x}{\rho_r})^2Z_x
+\end{equation}
+where \(|K|_i\) is the dielectric constant for ice, \(|K|_w\) is the dielectric constant for liquid water, \(\rho_r\) is the density of liquid water and \(\rho_x\) is the density of either snow or graupel. \(Z_{eq}\) is considered an {\it equivalent} radar reflectivity factor. The ratio of the dielectric constants \(\frac{|K|_i^2}{|K|_w^2}\) = 0.23.
+
+\paragraph{Reflectivity for melting graupel and snow}
+
+Large uncertainties exist in modeling the effects of melting graupel and snow on reflectivity. In most data assimilation studies (e.g. \citealt{dowelletal11}), the reflectivity of snow or graupel in an environment with temperature \textgreater \(0^{\circ}\,\mathrm{C}\) was formulated either similarly to rain, or under the assumption that the particle surface remained dry during the melting process (due to absorption into the particle interior).
+
+The effects of melting graupel and snow on reflectivity in the Morrison scheme are based off the code of \citet{blahak07}. This code computes the dielectric constant for a melting particle using the Maxwell-Garnett mixing formula \citep{maxwellgarnett04}. To determine the degree of melting, the forward operator computes a meltwater fraction (MWF) as the particle descends through the melting layer. The MWF is defined as the fraction of mixing ratio that is present compared to the mixing ratio at the level above the melting layer. This increases from 0 to 1 as a melting particle descends. Further, the forward operator assumes that 90\% of the meltwater will remain on the surface while 10\% is absorbed into the interior of the particle. Given these assumptions, the PSD is broken into bins, and the reflectivity for each bin due to melting snow or graupel is determined by computing the backscattering cross-section for the modeled ice-air-water mixture within the bin, using the Rayleigh assumption. These are summed over the PSD to determine the reflectivity for melting snow or melting graupel. This technique allows for a continuously varying particle density (as ice changes to rain, gradually filling air pockets within the ice lattice) and varying dielectric constant throughout the melting process.
+
+Finally, the total equivalent reflectivity is computed as the sum of the reflectivity values from each species, followed by the conversion to a logarithmic scale. At grid points where the temperature is \textless \(0^{\circ}\,\mathrm{C}\), equation (\ref{Z}) is used to compute reflectivity for rain, snow and graupel. At grid points where the temperature is \textgreater \(0^{\circ}\,\mathrm{C}\), reflectivity for snow and graupel, if any exists, is computed following the procedure described in the previous paragraph.
+\begin{equation}
+\centering
+Z_e = Z_{rain} + Z_{snow} + Z_{graupel}
+\end{equation}
+\begin{equation}
+\centering
+Z_{dB} = 10log_{10}Z_e
+\end{equation}
+
+\paragraph{Reflectivity-weighted terminal velocity}
+
+Assuming the distribution in \ref{psd}, and that terminal velocity and diameter can be related in a power-law relationship of the form \(V_{T_x}(D_x) = a_xD_x^{b_x}\), where \(a_x\) and \(b_x\) are constants, \(V^Z_{T_x}\) is computed for rain, snow, and graupel using:
+\begin{equation}
+\centering
+V^Z_{T_x} = a_xD_{nx}^{b_x}\frac{\Gamma(2d_x+b_x+1)}{\Gamma(2d_x+1)}(\frac{\rho_{850}}{\rho})^{0.54}
+\end{equation}
+A density correction is applied to \(V^Z_{T_x}\) via the air density ratio raised to the 0.54 power in the above equation. Further, \(V^Z_{T_x}\) is not permitted to increase above 9.1 m s\textsuperscript{-1}, 1.2 m s\textsuperscript{-1}, and 20 m s\textsuperscript{-1} for rain, snow, and graupel, respectively.
+
+A combined \(V_{T_{Z}}\) is computed as,
+\begin{equation}
+\centering
+V^Z_T = \frac{V^Z_{T_r}Z_r + V^Z_{T_s}Z_s + V^Z_{T_g}Z_g}{Z_r + Z_s + Z_g}
+\end{equation}
+
+ 
+\paragraph{Radial velocity}
+
+The radial velocity is computed using interpolated values of the U, V, W, and \(V^Z_T\) fields, with knowledge of the radar beam elevation angle \(\alpha\) and the azimuth angle \(\beta\):
+\begin{equation}
+\centering
+V_r = Ucos(\alpha)sin(\beta) + Vcos(\alpha)sin(\beta) + (W-V^Z_T)sin(\alpha)
+\end{equation}
+

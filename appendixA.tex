@@ -1,0 +1,11 @@
+\chapter{2012 NCAR cycled mesoscale EnKF system}
+The NCAR mesoscale EnKF system was run in real-time during the spring of 2012. Observations were assimilated every 6 hours between 00 UTC 30 April 2012 and 02 July 2012, with a brief interruption due to a computing shutdown on 26-27 June. This shutdown is after the period of interest in this work, thus the assimilation system had been cycling continuously for approximately one month prior to the current case. Assimilated observations included rawinsondes, METAR, NOAA profilers, buoy, ship, AMDAR reports, atmospheric motion vectors, and GPS radio occultation observations (Fig. \ref{ncar_assimobs}). The domain covers most of the contiguous United States, the eastern Pacific Ocean, southern Canada, and the Gulf of Mexico (outer domain in Fig. \ref{domain}). Lateral boundary conditions were provided by the operational GFS analysis and 6-hour forecast.
+
+The following physics choices were used in the cycled system: Tiedtke cumulus parameterization, RRTMG radiation, and Morrison microphysics. Horizontal and vertical localization was set to 640 km and 8 km, respectively, using the Gaspari-Cohn localization function. In areas of dense observations, exceeding 2000 within the localization ellipsoid, the localization distance was decreased by the observation number overage ratio (if 4000 observations exist within the ellipsoid, the localization length was halved). A sampling error correction \citep{anderson12} was also applied during assimilation to reduce to effects from spurious covariances.
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.9]{ncar_assimobs}
+\caption{Observations assimilated during the 18 UTC 2012 May 29 cycle of the NCAR EnKF mesoscale analysis system. Observations types and the number of assimilated observations are provided on the figure legend.}
+\label{ncar_assimobs}
+\end{figure}

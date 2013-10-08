@@ -1,0 +1,238 @@
+\chapter{Part II: Surface and radar data assimilation for the 29 May 2012 convective event}
+\label{real_chapter}
+A real-data DA study of a convective event was performed as a complement to Part I to explore issues not readily studied in the OSSE framework (e.g. model error, mesoscale variability, assimilation of real observations, etc.). Both surface and radar datasets are assimilated to produce the best possible analyses of the mesoscale and convective-scale, and the benefits of each source of data are discussed in turn.
+
+\section{Case summary}
+\subsection{Synoptic and mesoscale environment}
+On the synoptic scale, a shortwave trough was located across the northern Great Plains and western Great Lakes region at 12 UTC 29 May 2012 (Fig. \ref{upper}a). In the wake of this trough, shortwave ridging and height rises were occurring across the Rocky Mountains. An axis of stronger flow aloft (50-60 knots at 300 hPa) associated with the subtropical jet stream was oriented across the southwestern U.S. into the southern Great Plains. By 00 UTC 30 May 2012 (Fig. \ref{upper}b), the shortwave trough had moved eastward and height rises were occurring across the central and southern Great Plains. Associated with this ridging and the subtropical jet stream, there was modestly strong west to northwest flow above the 700 hPa level by 00 UTC 30 May 2012 across the southern Great Plains.
+
+\begin{figure}
+\centering
+\includegraphics[scale=1.0]{upperair}
+\caption{500 hPa upper-air observations, heights, and temperature at (a) 12 UTC 29 May 2012 and (b) 00 UTC 30 May 2012.}
+\label{upper}
+\end{figure}
+
+At the surface at 12 UTC 29 May 2012, a stationary front was draped across northern OK and southern KS, demarcating the boundary between cooler, dry air to the north associated with the high developing behind the northern U.S. trough, and more moist, warm air to the south across OK (Fig. \ref{surface}).  The 00 UTC 30 May 2012 radiosonde launched from Norman, OK was representative of the environment in the warm sector (Fig. \ref{skewt}). This sounding sampled the environment downstream of the developing convection to the west of the launch location, but was uncontaminated by precipitation or cloud layers. During the afternoon hours, an area of low pressure and associated dry line developed across western TX, primarily due to strong diabatic heating within the dry air mass across the High Plains of eastern NM and western TX (Fig. \ref{surface}. By early evening, the air mass to the east of this dry line and south of the aforementioned stationary boundary was characterized by moderate to strong instability (MLCAPE ranging from 2000-4000 J kg\textsuperscript{-1}), due to the presence of steep mid-level lapse rates (\textgreater 7.5 C/km; Fig. \ref{skewt}) and a moist boundary layer. Deep-layer shear was supportive of organized convection (0-6 km shear \textgreater 30 kts; Fig. \ref{skewt}) due to the presence of the 30 knots of northwest mid-level flow overlaid ontop of southeasterly surface flow.
+
+Thus, although there was limited synoptic scale support, instability and wind shear were supportive of organized convection across most of OK by mid-to-late afternoon on 29 May 2012.  The presence of greater than 40 knots of 0-6 km shear and a long, straight hodograph was conducive for the development of both left-moving and right-moving supercellular convection \citep{klempwilhelmson78}. Modest values of low-level shear (0-1 km shear was \textless 10 knots; Fig \ref{skewt}) were not conducive for the development of tornadoes \citep{thompsonetal03}, but large mid-level lapse rates and low mid-level relative humidity favored the production of large hail and strong surface winds.
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.8]{surface}
+\caption{Surface map valid at 20:07 UTC 29 May 2012. Solid lines indicate estimated positions of stationary boundary (blue) and dry line (brown). Observations are plotted at each station according to station model conventions.}
+\label{surface}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.65]{oun_201205300}
+\caption{Skew-T graphic showing the 00 UTC 30 May 2012 sounding from KOUN.}
+\label{skewt}
+\end{figure}
+
+\subsection{Convective evolution}
+Convection initiation (CI) occurred Between 21 UTC and 22 UTC, in three regions near the surface dry line and stationary boundaries: 1) near the intersection of the stationary front and dry line in southwest Kansas (Fig. \ref{satellite}a), 2) in northcentral Oklahoma near and to the north of a dry line bulge, and along a well-defined NW-SE oriented boundary layer roll (Fig. \ref{satellite}c), and 3) in southwestern Oklahoma along the dry line, in the presence of several boundary layer rolls (Fig. \ref{satellite}c). In addition, a failed CI attempt occurred in northern TX (Fig. \ref{satellite}a). For the remainder of this work, these four regions, and their associated CI events, will be denoted CI1-4.
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.85]{satellite}
+\caption{Visible satellite image from (a) 20:47 UTC, (b) 21:45 UTC, (c) 22:45 UTC, and (d) 23:45 UTC. Circles 1-3 denote areas of CI, while circle 4 denotes an area of CI failure, within the domain. These regions are referred to as CI1--4 in the text.}
+\label{satellite}
+\end{figure}
+
+Between 22 UTC and 00 UTC several supercells developed within CI1-3. In CI1, an intense supercell moved southeast into NW Oklahoma, while weaker convection developed in southwest KS (Fig. \ref{radarsummary}b). This supercell weakened after 23 UTC and dissipated shortly after 00 UTC (Fig. \ref{radarsummary}d). The two areas of CI within CI2 (Fig. \ref{radarsummary}a) developed into three primary convective cells by 23 UTC (Fig. \ref{radarsummary}b). By 00 UTC, many convective cells had developed within CI2, readily forming on outflow boundaries from early convection (Fig. \ref{radarsummary}c). Of note in this region are several intense supercells on the southern end of CI2 that moved toward the south, passing within and to the west of the Oklahoma City (OKC) metropolitan area (Fig. \ref{radarsummary}d. Within CI3, two isolated supercells developed and matured between 22 UTC and 00 UTC (Fig. \ref{radarsummary}a-c). The northern storm produced a left split that persisted as it moved northeastward (Fig. \ref{radarsummary}d) toward OKC. The southern right-moving supercell moved toward the southeast, crossing the Red River into northern Texas (Fig. \ref{radarsummary}d). The left-split continued to move northeast until merging with the southeastward moving convection from CI2. This merger occurred within the OKC metropolitan area shortly after 01 UTC.
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.85]{radarsum}
+\caption{Composite reflectivity (dBZ) at (a) 21:45 UTC, (b) 22:45 UTC, (c) 23:45 UTC, and (d) 00:45. (a)-(c) correspond to the same time as Fig. \ref{satellite}b-d.}
+\label{radarsummary}
+\end{figure}
+
+After 01 UTC, a large convective system developed across central and eastern Oklahoma, consisting of convection from CI2 and new convection developing to the east of CI2. This MCS was composed on the western end by several supercells that surged toward the south under the influence of an expanding surface cold pool. Although under the influence of an expanding cold pool, the convection within the western end of the MCS retained characteristics of discrete supercells for several hours, while the eastern end of the MCS across eastern Oklahoma was more linearly organized and developed after 00 UTC. The southern right-moving supercell from CI3 persisted until shortly after 03 UTC, moving southeast into the region south of Wichita Falls, TX.
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.7]{reports}
+\caption{Wind (blue dots), hail (green dots), and tornado (red dots) reports from 12 UTC 29 May 2012 through 11:59 UTC 30 May 2012. Significant severe weather reports are denoted by black squares (wind gust \textgreater 65 knots) and black triangles (hail \textgreater 2" or more in diameter). The cluster of reports near OKC includes several significant severe weather reports. }
+\label{reports}
+\end{figure}
+
+\subsection{Storm reports and damage}
+All forms of severe weather occurred across Oklahoma on 29 May 2012, including hail, wind, and a brief tornado (Fig. \ref{reports}). Nearly \$500 million in damage occurred within Oklahoma during the 29 May 2012 convective event \citep{ncdc12}. This was primarily associated with 5" diameter hail that was observed with the CI2 supercells and the left-moving CI3 supercell within the OKC metropolitan area. In addition, a short-lived EF-1 tornado occurred west of OKC with one of the CI2 supercells. Wind gusts to 80 mph were also reported with the CI2 supercells. 60-70 mph wind gusts occurred with the convective line that developed after 00 UTC across eastern Oklahoma and northeastern Texas.
+
+\section{Case selection}
+The 29 May 2012 convective event was chosen to test various hypotheses about the beneficial use of surface and radar data for predictions of complex convective events.  This qualities of this event described in the previous section were desirable for several reasons. First, synoptic scale forcing was relatively weak, thus initiation was driven primarily by forcing along surface boundaries. It is anticipated that surface data assimilation could potentially provide greater benefits for these types of cases. Second, the lifecycle of the convective system was constrained to a reasonably sized domain (1000 km x 1000 km), minimizing computational expense. Third, a high-quality mesoscale background was available for this case. Finally, a variety of storm modes were observed during the event, including left-moving and right-moving supercells, cell mergers, and upscale growth into an MCS. This variety provides a unique opportunity to test the ability of EnKF assimilation systems to provide accurate forecasts of more complex convective events.
+
+\pagebreak
+\section{Experiment Design}
+\subsection{Model configuration and initial ensemble}
+The assimilation experiments used a model grid with a horizontal grid spacing of 3 km, while the vertical grid contains 40 vertical levels and is 16 km deep. The domain is 945 km (315 grid points) in the north-south direction, and 885 km (295 grid points) in the west-east direction, and was centered over Oklahoma (Fig. \ref{domain}). This configuration keeps most of the convection within the domain and away from the lateral boundaries. The initial and boundary conditions for the 50-member, 3-km ensemble originated from downscaled 15-km mesoscale analyses taken from a continuously cycled 50-member EnKF analysis system run in real-time at the National Center for Atmospheric Research (NCAR) during the Spring of 2012. This system employs the Advanced Research WRF version 3.3.1 as the forward model (WRF; \citealt{skamarocketal08}) and the ensemble adjustment Kalman filter assimilation algorithm within the Data Assimilation Research Testbed (DART; \citealt{andersonetal09}) software package (described in Part I). The NCAR mesoscale ensemble was initialized on 30 April 2012 and observations were assimilated every 6 hours through the current period of interest. Further details about the design of the NCAR EnKF mesoscale analysis system are provided in Appendix A.
+\begin{figure}
+\centering
+\includegraphics[scale=0.7]{domain}
+\caption{NCAR EnKF analysis domain (outer domain; 15 km horizontal grid spacing) and nested inner domain (3 km horizontal grid spacing).}
+\label{domain}
+\end{figure}
+
+To create the initial conditions for the 3-km ensemble, the posterior ensemble state valid at 18 UTC on 29 May 2012 was downscaled onto the 3-km model grid. To produce boundary conditions, the 15-km mesoscale ensemble was advanced to 06 UTC on 30 May 2012 (i.e. 12 hour forecast), with output being saved every 30-minutes. The program {\it ndown}, part of the WRF package, was used to create the initial and boundary conditions from this 15-km ensemble output. The 15-km mesoscale ensemble was advanced using boundary conditions from the 18 UTC GFS. The same GFS-based boundary conditions were used for each member. This should not lead to a detrimental reduction in spread in the 3-km ensemble due to the interior domain’s placement far away from the 15-km domain boundaries. The initial ensemble for all experiments consists of the 50 downscaled ensemble states valid at 18 UTC on 29 May 2012. A control experiment with no data assimilation was performed beginning from this ensemble and extending to 06 UTC 30 May 2012 (i.e. a 12-hour free forecast). Other experiments were setup to assimilate various combinations of surface and radar data between 18 UTC and 00 UTC.
+
+Version 3.3.1 of the WRF model was used for the assimilation and forecast experiments. The Morrison double-moment scheme \citep{morrisonetal09} was used to parameterize cloud microphysics. This scheme was adapted from WRF version 3.4.1, since the later version includes a computation for reflectivity (details are located in Appendix B). The Morrison scheme predicts mass mixing ratios for cloud water, cloud ice, rain water, snow, and graupel, as well as the number concentration for rain, ice, snow, and graupel. PBL parameterization is implemented with the Mellor-Yamada-Janjic (MYJ) scheme \citep{janjic94}. The Rapid Radiative Transfer Model for Global climate models (RRTMG; \citealt{iaconoetal08}) handled shortwave and longwave radiation. Other details of the model configuration are provided in Table \ref{wrftable}. The WRF model was modified to output hourly-maximum values of fields useful for the diagnosis of convection in high-resolution model output \citep{kainetal10}. In addition, 2-m temperature, 2-m mixing ratio, 10-m wind speed, and composite reflectivity were saved at 5-minute intervals for verification with observations.
+
+\begin{table}
+\centering
+\begin{tabular}{ c || c }
+{\bf WRF setting} & {\bf Value} \\ \hline \hline
+Horizontal grid & 315 x 295, \(\Delta\)x = 3 km \\ \hline
+Vertical grid & 40 levels, \(p_{top}\) = 50 hPa \\ \hline
+Cumulus scheme & None \\ \hline
+PBL scheme & MYJ \\ \hline
+Microphysics scheme & Morrison \\ \hline
+Radiation (LW) & RRTMG \\ \hline
+Radiation (SW) & RRTMG \\ \hline
+Land-surface scheme & NOAH \\ \hline
+\end{tabular}
+\caption{WRF model settings}
+\label{wrftable}
+\end{table}
+
+\subsection{Observation sources and processing}
+Surface data were obtained from the NOAA Global Systems Division Meteorological Analysis and Data Ingest System (MADIS). These data included observations from standard METAR sites and various mesoscale networks (mesonet observations). The MADIS system does not archive Oklahoma Mesonet data, thus these data were added separately. Temperature, dew point temperature, altimeter, and the horizontal wind components (U and V) were assimilated. A rigorous quality control procedure, including spatial and temporal consistency checks, was applied to the observations within the MADIS system. Only those MADIS observations that have passed all MADIS quality control checks were assimilated in the present experiments. Figure \ref{surfobsdistribution} shows the spatial distribution of surface observations at 18 UTC 29 May 2012. Observation error standard deviation for U, V, temperature, and altimeter observations are shown in Table \ref{errortable}. Dew point observation errors are assigned using the formulation in \citet{linhubbard04}. Observation errors for MADIS mesonet data were assigned to be slightly larger than METAR and Oklahoma mesonet data due to the variety of mesonet data sources with unknown error characteristics within the MADIS dataset.
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.9]{surfobsdistribution}
+\caption{Distribution of surface observations from the (a) Oklahoma mesonet and (b) MADIS surface observation dataset at 18 UTC 29 May 2012 within the 3-km nested domain. (b) includes only those MADIS observations that passed all MADIS quality-control checks.}
+\label{surfobsdistribution}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[scale=1.0]{radarlocs}
+\caption{Locations and identifiers of the 7 WSR-88Ds used in the radar DA experiments.}
+\label{radarlocs}
+\end{figure}
+
+\begin{table}
+\centering
+\begin{tabular}{ c || c | c | c | c }
+{\bf Data source} & {\bf U (\(m\,s^{-1}\))} & {\bf V (\(m\,s^{-1}\))} & {\bf T (\(K\))} & {\bf Altimeter (\(hPa\))} \\
+\hline \hline
+METAR & 1.75 & 1.75 & 1.75 & 0.75 \\
+\hline
+OKMESO & 1.75 & 1.75 & 1.75 & 0.75 \\
+\hline
+MADIS MESO & 2.5 & 2.5 & 2.5 & 1.5 \\
+\end{tabular}
+\caption{Summary of observation errors for surface datasets. Dew point temperature observation error assigned using Lin and Hubbard (2004).}
+\label{errortable}
+\end{table}
+
+In addition to surface data, reflectivity and radial Doppler velocity observations from 7 WSR-88Ds (KICT, KDDC, KVNX, KINX, KTLX, KFDR, KDYX; Fig. \ref{radarlocs}) were assimilated into several experiments. The radar observations were objectively analyzed using a single-pass \citet{barnes64} objective analysis scheme onto a regularly spaced 6 km grid using the Observation Processing and Wind Synthesis (OPAWS) software. As in previous studies (e.g. \citealt{dowelletal04}), the observations were kept on the two-dimensional conical sweep surfaces. Reflectivity observations less than 10 dBZ were reassigned as clear-air observations and further thinned onto a 12 km grid. Radial velocity observations at these locations were discarded. The final processed radar observations were placed into 5-min bins and assimilated every 5 minutes. The observation errors for reflectivity and radial velocity were 5 dBZ and 2 m s\textsuperscript{-1}, respectively. It was determined that manual editing of the WSR-88D dataset to remove ground clutter, second trip echoes, etc. was unnecessary.
+
+\subsection{Assimilation details}
+The ensemble adjustment Kalman filter (EAKF; \citealt{anderson01,anderson03}) is used in the experiments. This algorithm is implemented in the DART software package and is the same algorithm used in Part I and described in section \ref{eakf}.
+
+If the observations are assumed to have independent errors, then the data assimilation update can proceed serially, with the assimilation of each observation producing a new ensemble and forecast uncertainty estimate that is used as the prior ensemble for the next observation in the following update (this process is applied repeatedly until all observations are assimilated). Once the update is complete, each ensemble member is advanced to the next observation time using WRF.
+
+As described in Part I, localization is needed to eliminate spurious covariances due to sampling error. Determining proper localization for surface observations is challenging, especially in the vertical, where the coupling between surface observations and the overlying atmosphere is variable in time and space. Given the relatively dense observational network due to mesonet data across the portion of the domain where most convection is observed, a horizontal localization length scale that is somewhat smaller that was chosen in other studies is implemented here (60 km horizontal cutoff), using the Gaspari-Cohn localization function \citet{gasparicohn99}. An 8 km vertical localization cutoff is used in the vertical. Horizontal and vertical localization for reflectivity and radial velocity observations was set to 12 km and 6 km, respectively, given the results of Part I. A 24 km (6 km) horizontal (vertical) localization cutoff was used for clear-air radar observations. The sensitivity of the analyses and forecasts to localization values is examined in a later section.
+
+Two methods are used to counteract the tendency for spread values to decrease during the data assimilaton update. First, as in Part I, additive noise is applied in areas where reflectivity \textgreater 25 dBZ immediately following the DA update, prior to the model advance \citep{dowellwicker09}. This not only maintains spread, but accelerates the spin-up of convection. Second, adaptive prior inflation \citep{anderson09} is used to increase ensemble spread while preserving the ensemble mean. The adaptive inflation algorithm produces an inflation field that varies in time and space. The specfic parameters used in the additive noise and inflation algorithms, along with other DART settings, are provided in Table \ref{darttable}.
+
+\begin{table}
+\centering
+\begin{tabular}{ c || c }
+{\bf DART setting} & {\bf Value} \\ \hline \hline
+Filter type & EAKF \\ \hline
+Ensemble members & 50 \\ \hline
+Outlier Threshold & 3.0 \\ \hline
+Adaptive Prior Inflation & Initial = 1.0, SD = 0.6 \\ \hline
+Adaptive Localization & 1600 \\ \hline
+Localization type & \citet{gasparicohn99} \\ \hline
+Localization (surface) & \(r_h\) = 60 km \(r_v\) = 8 km \\ \hline
+Localization (radar, precip) & \(r_h\) = 12 km \(r_v\) = 6 km \\ \hline
+Localization (radar, clear-air) & \(r_h\) = 24 km \(r_v\) = 6 km \\ \hline
+Sampling error correction & False \\ \hline
+Additive noise & 0.5 m s\textsuperscript{-1}, 0.5 K \\ \hline
+\end{tabular}
+\caption{Options for the DART assimilation system. Localization choices vary in some sensitivity experiments as described in the text. A full description of the adaptive inflation and additive noise algorithms are provided in \citet{anderson09} and \citet{dowellwicker09}, respectively.}
+\label{darttable}
+\end{table}
+
+The full list of model fields within the DART state updated during the data assimilation procedure are provided in Table \ref{state}. Many of these fields are diagnosed (not prognosed) by WRF; these fields are incorporated within the DART state to make them available for the DART forward operators. For example, reflectivity and reflectivity-weighted fall speed are diagnosed within the microphysics scheme using assumptions consistent with those within the scheme. The reflectivity and radial velocity forward operators directly interpolate these two fields during the data assimilation update to compute the predicted observations (i.e. \(H(x^f)\)).
+
+\begin{table}
+\centering
+\begin{tabular}{ c | c}
+\multicolumn{2}{c}{\bf Model state fields updated during DA} \\
+\hline \hline
+Horizontal wind (U and V) & Vertical velocity \\
+Geopotential height & Potential temperature \\
+Pressure & Water vapor mixing ratio \\
+Cloud water mixing ratio & Rain water mixing ratio \\
+Cloud ice mixing ratio & Snow mixing ratio \\
+Graupel mixing ratio & Rain number concentration \\
+Ice number concentration & Snow number concentration \\
+Graupel number concentration & Condensational heating \\
+10-m horizontal wind (U and V) & 2-m temperature \\
+2-m potential temperature & 2-m water vapor mixing ratio \\
+Surface pressure & Radar reflectivity \\
+Reflectivity-weighted fall speed \\
+\hline \hline
+\end{tabular}
+\caption{List of fields updated during the data assimilation step by DART.}
+\label{state}
+\end{table}
+
+\subsection{Observation-space diagnostics and verification datasets}
+In Part I, analysis accuracy was assessed by comparing analyses directly to the true state. In the present experiments, the analyses are compared to observations before (prior) and after (posterior) assimilation. Thus, the state-space diagnostics (RMSE, bias, and CR in section \ref{statespace}) need to be redefined in terms of the observations. It is helpful to define the observation \textit{innovation}, \(d\), as the difference between the observation and the model estimate of the observation\footnote{\(d^f\) is called the innovation since the observation provides new information beyond what was predicted in the prior state (\(x^f\)). Although \(d^a\) is defined analogously to \(d^f\), it is not traditionally referred to as an innovation.}:
+
+\begin{equation}
+   d^{a,f} = y^o - \overline{H(x_i^{a,f})}
+\end{equation}
+Then, the previous diagnostics can be defined as:
+\begin{equation}
+   RMSI^{a,f} = \sqrt{\frac{1}{M}\sum_{i=1}^{M} (d^{a,f})^2} 
+\label{rmse}
+\end{equation}
+\begin{equation}
+   BIAS^{a,f} = \frac{1}{M}\sum_{i=1}^{M} d^{a,f}
+\label{bias}
+\end{equation}
+\begin{equation}
+   Spread^{a,f} = \frac{1}{M}\sum_{i=1}^{M} [\frac{1}{N-1}\sum_{n=1}^{N}(H(x_{i,n}^{a,f}) - \overline{H(x_i^{a,f})})^2]
+\end{equation}
+\begin{equation}
+   CR^{a,f} = \frac{(Spread^{a,f})^2}{(RMSE^{a,f})^2}
+\label{cr}
+\end{equation}
+Here, \(M\) is the total number of observations at one assimilation time and \(H\) is the forward operator that computes the prior or posterior observation estimate using the model fields interpolated to the location of the observation. RMSE is re-defined as RMSI (root mean-squared innovation).
+
+Surface and radar observations were also used to verify the forecasts at 5-minute intervals. The same sources of surface observations that were used during the assimilation period were used for verification. A three-dimensional gridded reflectivity mosaic from the NOAA National Mosaic and QPE system \citep{zhangetal11} was used to verify model forecasts of composite reflectivity (CREF).
+
+\section{Other convection-permitting ensemble forecasts}
+\subsection{Description of other convection-permitting ensemble forecasts}
+Several operational and experimental convection-permitting, deterministic, and ensemble forecasts were available in real-time during this event. While the specifics of each modeling system and the source of forecast errors will not be described, their forecasts will be briefly summarized to gauge the ability of different forecast systems to provide accurate predictions for this convective event (the configuration can be found in the provided references). Much of the available experimental forecast guidance was generated in support of the 2012 SPC/HWT Spring Experiment \citep{kainetal12}. This included a 28-member, 36-hour convection-permitting ensemble forecast initialized daily at 00 UTC by the Center for Analysis and Prediction of Storms (CAPS) with 4-km horizontal grid spacing. A subset of 12 ensemble members possessed initial and boundary condition perturbations from the operational NCEP short-range ensemble forecasting system (SREF), while the other members varied in their use of physical parameterization packages. Two additional ensembles produced from operational high-resolution models (SSEO) and from the Air Force Weather Agency (AFWA) forecast system were also available.
+
+Ensemble forecast neighborhood probabilities of updraft helicity (UH) in excess of \(25\,m^2 s^{-2} \) and ensemble maximum UH from the CAPS, SSEO, and AFWA forecast systems differ in their forecast of convection initiation and early evolution within the 21 UTC through 00 UTC time period (Fig. \ref{ssef_20}). The CAPS ensemble produces the largest probabilities (between 30-40\%) in northwest Oklahoma (placed in the vicinity of CI1 and CI2) and western Arkansas (Fig. \ref{ssef_20}b). Coherent UH tracks are located along the OK/KS border and associated with more isolated convection southward across the eastern TX Panhandle, southwest OK, and northern TX (Fig. \ref{ssef_20}a). Forecast probabilities less than 10\% exist in CI3 (Fig. \ref{ssef_20}b). The SSEO had higher forecast probabilities (\textless 50\%) than the CAPS ensemble from CI1 eastward along the stationary boundary in southern KS, although forecast probabilities in the vicinity of CI3 were \textless 10\%, and only 1 or 2 ensemble members produced convection in this region (Fig. \ref{ssef_20}d). SSEO probabilities across western AR were also reduced compared to the CAPS ensemble. The AFWA ensemble produced large forecast probabilities (\textgreater 60\%) across south-central KS and northeast OK, east of CI1 and CI2 (Fig. \ref{ssef_20}f). This system also was the only of the three ensemble systems to produce extensive, long-lived convection, from southwest OK into central TX, mostly south of CI3.
+\begin{figure}
+\centering
+\includegraphics[scale=0.9]{ssef_20}
+\caption{Forecasts of (a), (c), (e) ensemble maximum updraft helicity, and (b), (d), (f) ensemble probability of updraft helicity \textgreater 25 m\textsuperscript{2} s\textsuperscript{-2} from the (a), (b) SSEF, (c), (d) SSEO, and (e), (f) AFWA ensemble forecasting systems valid 20 UTC 29 May 2012 -- 00 UTC 30 May 2012. Observed storm reports during the period are overlaid as green markers and squares.}
+\label{ssef_20}
+\end{figure}
+\begin{figure}
+\centering
+\includegraphics[scale=0.9]{ssef_00}
+\caption{As in Fig. \ref{ssef_20}, but for the 00 UTC -- 04 UTC 30 May 2012 forecast period.}
+\label{ssef_00}
+\end{figure}
+
+In the 00 UTC through 04 UTC period, all three ensembles focused convection across northern and central OK, with similar biases present as in the previous 4-hour time period (Fig. \ref{ssef_00}). The CAPS ensemble produced relatively low probailities and was slow with the southward progression of observed convection, while forecast probabilities were larger in this region in the SSEO and AFWA ensembles. Across southwest OK and northern TX, one or two members from the CAPS and SSEO systems produce isolated, long-lived, supercells close to the track of the observed supercell that originated in CI3. Again, the AFWA ensemble contained a large amount of spread in the location of convection across north TX.
+
+
+\subsection{Discussion}
+Overall, the three ensemble forecasting systems showed some skill at predicting the general evolution of convection across this region, with errors typical of convective-scale predictions for the “next-day” convective cycle, in this case forecast lead times between 20-28 hours. Taken together, the three ensemble forecasting systems provide a sense of certainty in the development of a mesoscale environment supportive of deep convection across much of the region, including the placement of the salient surface boundaries tied to CI. Even in light of typical errors in the placement of convection at these lead times, interpreting this forecast guidance in real-time would lead to a fairly high degree of confidence in the following forecast scenario: initial convective development across northwest and northcentral OK that evolves toward the southeast into central OK. The forecast systems are less confident about the development and evolution of convection in southwest OK and northern TX. At least one ensemble member in each ensemble system produced a long-lived supercell near CI3. Thus, initiation within this region is less certain, and possibly less widespread, although if initiation occurs if appears likely that it will be sustained in an environment supporting of rotating deep convection.
+
+In the assimilation experiments conducted herein, one of the goals is to improve forecasts of convection at lead times much shorter than the ensemble forecasts examined in this section. It is assumed that forecasts initiated at times closer to CI would be even more skillful than those presented here, but still retain convective-scale and meso-gamma scale errors that can potentially be ameliorated with data assimilation. Thus, the ensemble forecasts presented in this section lend confidence in the overall ability of contemporary ensemble systems to provide acceptably accurate forecasts for this case, thus not needing to correct for larger-scale errors in the initial conditions (e.g. boundary placement). Focus is thus directed toward improving smaller-scale details in the forecasts that will improve forecasts of convective initiation, upscale growth, and locations of severe weather. The next section will reinforce this idea by describing the ensemble forecasts produced as a control for the later data assimilation experiments.
