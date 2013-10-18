@@ -37,11 +37,12 @@ In variational approaches, including three-dimensional variational assimilation 
 \label{3DVAR}
    J(x) = J_b + J_o + J_c
 \end{equation}
-\label{3DVAR}
+\begin{equation}
+\label{3DVAR2}
    J(x) = \frac{1}{2}(x - x^b)^TB^{-1}(x - x^b) + \frac{1}{2}(H(x) - y_o)^TR^{-1}(H(x) - y_o) + J_c
 \end{equation}
 
-Terms in the cost function can include the departure between the analysis and observations, \(J_o\), background, \(J_b\), and dynamic or smoothness constraints, \(J_c\), (e.g. \citealt{gaoetal03,geetal12}). \(J_b\) and \(J_o\) are weighted inversely by \(R\) and \(B\), respectively. The final analysis is  \(x^a\) is chosen as the \(x\) which minimizes the cost function. This occurs where the derivative of J becomes zero.
+Terms in the cost function can include the departure between the analysis and observations, \(J_o\), background, \(J_b\), and dynamic or smoothness constraints, \(J_c\), (e.g. \citealt{gaoetal03,geetal12}; equation \ref{3DVAR}). \(J_b\) and \(J_o\) are weighted inversely by \(R\) and \(B\), respectively (equation \ref{3DVAR2}). The final analysis is  \(x^a\) is chosen as the \(x\) which minimizes the cost function. This occurs where the derivative of J becomes zero.
 
 While OI and 3DVAR produce analyses in different ways (OI computes optimal weights that minimize the analysis error variance, while 3DVAR computes an analysis that minimizes a cost function), \citet{lorenc86} demonstrated the equivalency of the two techniques. Accurately representing \(R\) and \(B\) remains a significant challenge for both approaches. \(B\) is typically represented by a static matrix containing isotropic error covariance structures. Thus, the background errors are estimated once and assumed to be stationary. This neglects the forecast "errors of the day" and, as will be discussed in section \ref{section_kf}, is insufficient for the meso- and convective-scales where error covariance structures can be flow-dependent.  \(R\) is usually constructed as a diagonal matrix, assuming that observation errors are uncorrelated.
 
