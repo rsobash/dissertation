@@ -48,20 +48,7 @@
 \let\savedCaption=\caption
 \renewcommand{\caption}[1]{\normalsize\OUsinglespace\savedCaption{#1}}
 
-\begin{preface}
-\prefacesectionX{Dedication}
-Dedication here
-
-\prefacesection{Acknowledgements}
-Acknowledgements here
-%must leave a blank line next to avoid bug:
-
-\tableofcontents
-\listoftables
-\listoffigures
-\prefacesection{Abstract}
-Abstract here
-\end{preface}
+\include{preface}
 
 \include{motivation}
 
